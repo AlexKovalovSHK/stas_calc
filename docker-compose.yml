@@ -1,0 +1,7 @@
+services:
+  backend:
+    image: stas_calc_client:latest
+    container_name: stas_calc_client
+    ports:
+      - "3003:3003"
+    command: "nginx -g 'daemon off;'"
