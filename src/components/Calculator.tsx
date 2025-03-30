@@ -1,6 +1,4 @@
 import React, { useState } from "react"
-import { market } from "../features/goods/utils"
-import { Product } from "../features/goods/type"
 import Button from "@mui/material/Button"
 
 interface Service {
@@ -11,7 +9,7 @@ interface Service {
 
 const Calculator = () => {
   // Состояния для материалов
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null)
   const [productQuantity, setProductQuantity] = useState(0)
 
   // Состояния для услуг
@@ -21,7 +19,7 @@ const Calculator = () => {
 
   // Состояния для хранения выбранных материалов и услуг
   const [materials, setMaterials] = useState<
-    { product: Product; quantity: number }[]
+    { product: any; quantity: number }[]
   >([])
   const [services, setServices] = useState<Service[]>([])
 
@@ -92,16 +90,16 @@ const Calculator = () => {
               className="form-select w-75 mx-auto"
               value={selectedProduct?.id || ""}
               onChange={e => {
-                const product = market.find(p => p.id === e.target.value)
-                setSelectedProduct(product || null)
+                //const product = market.find(p => p.id === e.target.value)
+                //setSelectedProduct(product || null)
               }}
             >
               <option value="">Выберите материал</option>
-              {market.map(product => (
+              {/*market.map(product => (
                 <option key={product.id} value={product.id}>
                   {product.name} - {product.price} руб.
                 </option>
-              ))}
+              ))*/}
             </select>
           </div>
 
