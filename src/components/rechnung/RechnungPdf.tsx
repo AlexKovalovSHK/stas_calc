@@ -1,17 +1,14 @@
 import { TableContainer } from "@mui/material"
-import React from "react"
+import React, { useState } from "react"
+import { useAppSelector } from "../../app/hooks"
+import { selectClientAddress, selectClientRechnungData, selectObjectAddress, selectParagraph } from "../../features/client/clientSlice"
 import RechnungTable from "./RechnungTable"
-import { useAppSelector } from "../app/hooks"
-import {
-  selectClientAddress,
-  selectClientRechnungData,
-  selectObjectAddress,
-} from "../features/client/clientSlice"
 
 const RechnungPdf = () => {
   const clientData = useAppSelector(selectClientAddress)
   const objData = useAppSelector(selectObjectAddress)
   const rechData = useAppSelector(selectClientRechnungData)
+  const parragraph = useAppSelector(selectParagraph)
 
   return (
     <div className="p-5">
@@ -38,25 +35,25 @@ const RechnungPdf = () => {
           </div>
         </div>
         <div className="col-sm-6 mt-5">
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-between">
             <div>
               <b>Rechnungsnummer:</b>
             </div>
             <div>{rechData.rechnungsnummer}</div>
           </div>
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-between">
             <div>
               <b>Rechnungsdatum:</b>
             </div>
             <div>{rechData.rechnungsdatum}</div>
           </div>
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-between">
             <div>
               <b>Zahlungsbedingungen:</b>
             </div>
             <div>{rechData.zhlungsbedingungen}</div>
           </div>
-          <div className="d-flex justify-content-around">
+          <div className="d-flex justify-content-between">
             <div>
               <b>Fälligkeitsdatum:</b>
             </div>
@@ -75,7 +72,7 @@ const RechnungPdf = () => {
 
       <div className="p-5">
         <p>
-          Gmäß #19 Abs. 1 UStG enthält der ausgewiensene Betrag keine
+          Gmäß #{parragraph} Abs. 1 UStG enthält der ausgewiensene Betrag keine
           Umsatzsteuer.
         </p>
         <p>

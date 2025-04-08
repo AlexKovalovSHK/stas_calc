@@ -6,7 +6,7 @@ const initialState: Client = {
   client: {} as ClientAddress,
   cloentObj: {} as ClientObject,
   clientRechnungData: {} as ClientRechnungData,
-  paragraph: "",
+  paragraph: "19",
 }
 
 export const clientSlice = createAppSlice({
@@ -28,26 +28,32 @@ export const clientSlice = createAppSlice({
         state.clientRechnungData = action.payload
       },
     ),
-    addClientParagraph: create.reducer(
-        (state, action: PayloadAction<string>) => {
-          state.paragraph = action.payload
-        },
-      ),
+    changeClientParagraph: create.reducer(
+      (state, action: PayloadAction<string>) => {
+        state.paragraph = action.payload
+      },
+    ),
   }),
   selectors: {
     selectClientAddress: state => state.client,
     selectObjectAddress: state => state.cloentObj,
     selectClientRechnungData: state => state.clientRechnungData,
+    selectParagraph: state => state.paragraph,
   },
 })
 
 // Action creators are generated for each case reducer function.
-export const { addClientAdress, addObjectAdress, addClientRechnungData, addClientParagraph } =
-  clientSlice.actions
+export const {
+  addClientAdress,
+  addObjectAdress,
+  addClientRechnungData,
+  changeClientParagraph,
+} = clientSlice.actions
 
 // Selectors returned by `slice.selectors` take the root state as their first argument.
 export const {
   selectClientAddress,
   selectObjectAddress,
   selectClientRechnungData,
+  selectParagraph,
 } = clientSlice.selectors

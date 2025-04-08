@@ -1,6 +1,6 @@
-import React from "react"
-import RechnungPdf from "./RechnungPdf"
 import Preis from "./Preis"
+import RechnungPdf from "./RechnungPdf"
+
 
 const Rechnung = () => {
   return (
