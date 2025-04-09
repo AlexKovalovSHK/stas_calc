@@ -10,7 +10,8 @@ import Rechnung from "./components/rechnung/Rechnung"
 import Home from "./components/home/Home"
 
 //export const apiUrl = "http://localhost:5002"
-export const apiUrl = "http://217.154.5.134:5002"
+//export const apiUrl = "http://217.154.5.134:5002"
+export const apiUrl = "https://https://stas-serv.shk.solutions"
 
 const App = () => {
   return (
