@@ -24,7 +24,8 @@ const Cabinet = () => {
     <div className='mt-5 pt-5'>
       <h5 className=''>Rechnungs</h5>
       <ul>{rechnungs.map((r, i) => <div key={r._id} className='d-flex mb-2'>
-        <li onClick={() => getPdf(r._id)} className='cursor me-5'>{r.name} {r.rechnungsdatum}</li>
+        <li  className=' me-5'>{r.name} {r.rechnungsdatum}</li>
+        <button onClick={() =>getPdf(r._id)} className='me-2'>Show</button>
         <button onClick={() =>removePdf(r._id)}>Delete</button>
       </div>)}</ul>
     </div>
